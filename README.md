@@ -1,5 +1,7 @@
 # 🇩🇪 Germany Rental Analysis, Prediction.
 
+Dataset from Kaggle: (https://www.kaggle.com/code/northpatawee/germany-rental-clean-eda-lgbm-99-acc/input)
+
 ## 🧐 Project Overview 
 - Create virtualization to have a better understanding of the data of the rental cost in Germany.
 Engineered features from the original variable to create a better and understanding of the factor that impacts the rental price cost in Germany.
@@ -15,7 +17,7 @@ Engineered features from the original variable to create a better and understand
 
 **Packages**: np, pandas, plotly, matplotlib, lightgbm, json and more.
 
-# 🧼 Data Clearning
+# 🧼 Data Cleaning
 
 ## Missing Values
 After scraping the data, I needed to clean it up to be usable for the model. I made many changes to make the data have a better understanding.
