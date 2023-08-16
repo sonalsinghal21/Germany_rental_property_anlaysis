@@ -66,13 +66,9 @@ Average rental per month by using city to seperate
 ![05cityratio](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/average_rental_per_month.gif)
 
 ### Geographical map
- [Source](https://www.kaggle.com/code/jonaslneri/german-rent-avg-by-postal-code)
 
 Average rental per month by using Postleitzahl to seperate.
 ![06rentalsqm](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/germany_map.png)
-
-Interactive plot to check each of the average rental price by using Postal Code.
-![07rentalsqm](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/germany_average_map.gif)
 
 We could do more virtualization to understand more in a specific city or room type depending on what purpose you're trying to use this work in, such as focusing in only Berlin.
 
