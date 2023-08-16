@@ -54,6 +54,7 @@ To understand the model that we want to create the prediction model. We should a
 ## Data Visualization
 ### Distribution
 Distribution Plot of 'totalRent.'
+![03distribution](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/distribution.png)
 
 
 ### Correlation with heatmap
@@ -65,7 +66,7 @@ Average rental per month by using city to seperate
 ![05cityratio](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/average_rental_per_month.gif)
 
 ### Geographical map
-Shout out to Jonas Neri for this idea! [Source](https://www.kaggle.com/code/jonaslneri/german-rent-avg-by-postal-code)
+ [Source](https://www.kaggle.com/code/jonaslneri/german-rent-avg-by-postal-code)
 
 Average rental per month by using Postleitzahl to seperate.
 ![06rentalsqm](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/germany_map.png)
@@ -75,75 +76,6 @@ Interactive plot to check each of the average rental price by using Postal Code.
 
 We could do more virtualization to understand more in a specific city or room type depending on what purpose you're trying to use this work in, such as focusing in only Berlin.
 
-# 🤖 Machine Learning
-I would transform and scale categorical variables and numerical variables to make it fit to the model for the best result of the data.
-
-## Ridge Regression
-One of my favorite model when I've to create any machine learning model. It reduces the parameter estimates in an effort to reduce variance, improve prediction accuracy, and simplify interpretation.
-```Python
-# Hyperparameters for 'Ridge Regression'
-from sklearn.linear_model import Ridge
-ridge = Ridge(alpha=2.81, copy_X=True, fit_intercept=False, max_iter=None,
-      normalize=True, random_state=123, solver='auto', tol=0.001)
-
-# Fit the data
-ridge.fit(x_train,y_train)
-```
-## Light Gradient Boost
-I've found this model is like Xgboost, and it's run much faster, so now I'm trying as much as I can to use this library to improve my skills.
-
-**For anyone who is interest in documentation:** https://lightgbm.readthedocs.io/en/latest/Python-Intro.html
-```Python
-d_train = lgb.Dataset(x_train, label=y_train) # Load the dataset and test
-
-# Hyperparameters for this model
-params = {
- 'n_estimators': 10000,
- 'objective': 'regression',
- 'metric': 'rmse',
- 'boosting_type': 'gbdt',
- 'max_depth': -1,
- 'learning_rate': 0.01,
- 'subsample': 0.72,
- 'subsample_freq': 4,
- 'feature_fraction': 0.4,
- 'lambda_l1': 1,
- 'lambda_l2': 1,
- 'seed': 46,
- }
-
-clf = lgb.train(params, d_train, 100)
-```
-
-## Model Performance.
-We could use other type of machine learning such as linear regression or random forest to calculate and might suitable than my but I want to train myself more in this technique.
-- LGBM: RMSE ~ 130-140
-Which has a very good precision rate of around 80%, and we could increase the model's accuracy by inputting more factors in the models, but I choose not to because it would be difficult for newcomers to find all of the information.
-
-## Model Comparison
-### Compare by using the accuracy
-Root Mean Squared Error (RMSE) and Mean Absolute Error (MAE) are main metrics used to evaluate a Regression Model.
-![MAE_VS_RMSE](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/rmse_mae.png)
-
-From the plot above we could see that `Light Gradient Boost` is performing slightly better than `Ridge Regression`
-
-### Compare by using the speed
-However if we want to deploy the model for the others to use, we should consider the speed of the model and concern of the tradeoff too.
-![Time_RMSE](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/time_comparison.png)
-
-From the plot above we could see that `Ridge Regression` is performing way faster than `Light Gradient Boost`.
-
-
-
-# 🎇 Productionization
-In the last step, I build a flask API and use other web applications (CSS,HTML,JS) that I've little knowledge about to build. So it might not work perfectly but I could show you and explain the basic concept of the work.
-
-This is the basic function of the web when you input all the variables and select all type of apartments, heating etc. and click estimate price. 
-It will use the Ridge Regression model we've trained before to generate the estimated price we have to pay per month. If we've a better dataset, we might do it more precisely.
-![07page](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/prediction.png)
-
 
 # Summary
-We could do a lot more such as specified in one city such as Berlin, or create other variables for the users to input. This work could develop more such as improving the interface or others, and I will try to put this work into AWS for the others to use this model for their reference in apartment finding in the future.
-
-This is all of this project. If you love it, you can star or if you're looking for collaboration. I'm always open to that.
+We could do a lot more such as specified in one city such as Berlin, or create other variables for the users to input. This work could develop more such as improving the interface or others.
